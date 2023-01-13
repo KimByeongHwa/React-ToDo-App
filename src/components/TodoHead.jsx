@@ -1,5 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { useTodoState } from "../context/TodoContext";
+
+function TodoHead() {
+  const todos = useTodoState();
+  console.log(todos);
+
+  return (
+    <TodoHeadBlock>
+      <h1>2023년 1월 13일</h1>
+      <div className="day">금요일</div>
+      <div className="tasks-left">할 일 3개 남음</div>
+    </TodoHeadBlock>
+  );
+}
 
 const TodoHeadBlock = styled.div`
   padding-top: 48px;
@@ -25,15 +39,5 @@ const TodoHeadBlock = styled.div`
     font-weight: bold;
   }
 `;
-
-function TodoHead() {
-  return (
-    <TodoHeadBlock>
-      <h1>2023년 1월 12일</h1>
-      <div className="day">수요일</div>
-      <div className="tasks-left">할 일 2개 남음</div>
-    </TodoHeadBlock>
-  );
-}
 
 export default TodoHead;
